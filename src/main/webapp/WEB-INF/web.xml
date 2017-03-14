@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+<!--   <display-name>Archetype Created Web Application</display-name> -->
+
+	<!-- 1,从类路径下加载spring的配置文件,classpath关键字特指类路径下加载 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	
+	
+	<!--2,负责启动spring容器的监听器,它将引用1处的上下文参数,获得spring配置文件的地址  -->
+	<listener>
+		<listener-class>
+		    org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+		
+	<servlet>
+	
+		<servlet-name>login</servlet-name>
+	
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc.xml</param-value>
+		</init-param> 
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+</web-app>
