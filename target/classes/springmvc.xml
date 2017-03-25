@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<!-- 自动扫描带有@Controller注解的控制层，注入为bean -->
-	<context:component-scan base-package="com.hrcy.back.user.controller" />
+	<context:component-scan base-package="com.hrcy.back.home.controller" />
 	<context:component-scan base-package="com.hrcy.front.user.controller" />	
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
